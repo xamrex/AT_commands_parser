@@ -9,9 +9,6 @@ typedef struct{
 	void (*callback_function)(char **, uint8_t );            // callback function pointer
 } t_cmd;
 
-//! prosty enum dla okreslenia czy funkcja przyjmuje parametry, czy nie
-enum{at_type_no_params, at_type_params};
-
 //! Maksymalna ilosc parametrow jakie bedziemy uzywac - wyznacza wielkosc tablicy z parametrami
 #define _MAX_PARAMETERS 15
 
