@@ -45,7 +45,8 @@ void AT_commands_decode(char* data)
 
 		// petla po wszystkich komendach - jesli nie mamy w sobie odpowiedniej komendy - wykonamy wszystkie iteracje
 		// w przypadku znalezienia komendy - opuszczamy petle
-		for(int i = 0; i < AT_commands_number; i++)
+		int i=0; //Utworzenie zmiennej i, aby była widoczna na zewnątrz
+		for( i = 0; i < AT_commands_number; i++)
 		{
 		    // porownanie odebranego napisu i komend z tablicy
 			if( strcmp(AT_command_array[i].cmd, data ) == 0 )
@@ -97,10 +98,15 @@ void AT_commands_decode(char* data)
 				break;
 			}
 		}
+		
+		// bledna komenda (taka której nazwa zaczyna się od AT+), ale nie ma jej w tabeli AT_cmd_array[]  - mozna dodac jakas defaultowy event w przyszlosci
+		// np do przeslania ramki ERROR
+		
+	
 	}
 	else
     {
-        // bledna komenda - mozna dodac jakas defaultowy event w przyszlosci
-		// np do przeslania ramki ERROR
+        // bledna komenda (taka której nazwa nie zaczyna się od AT+) - mozna dodac jakas defaultowy event w przyszlosci
+	// np do przeslania ramki ERROR
     }
 }
